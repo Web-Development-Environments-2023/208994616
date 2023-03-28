@@ -2,7 +2,15 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="emojionearea.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous">
+    </script>
   </head>
+  
+  
   <body>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0" nonce="eiclUhFw"></script>
@@ -173,7 +181,7 @@
     </h1>
     <hr id="hr1">
     <div class="container">
-      <form action="mailto: saarbu@post.bgu.ac.il">
+      <form class="mail" method="post" action="mailto: saarbu@post.bgu.ac.il">
     
         <label for="first-name">Name</label>
         <input type="text" id="first-name" name="firstname" placeholder="Your Full Name" required>
@@ -182,15 +190,31 @@
         <input type="text" id="email" name="emailaddress" placeholder="Your Email Address" required>
     
         <label for="phone-number">Phone Number</label>
-        <input type="text" id="lname" name="phone-number" placeholder="Your Phone Number" required>
+        <input type="text" id="phonenumber" name="phone-number" placeholder="Your Phone Number" required>
 
-    
         <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Content" style="height:200px" required></textarea>
-        
-        <button type="submit" value="Submit">
-    
+        <textarea id="subject" name="subject" placeholder="Content" style="height:200px;" required></textarea>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+        <script>
+        $("#subject").emojioneArea({
+          pickerPosition:"buttom"
+        });
+        </script>
+
+        <input type="submit" value="Send">
       </form>
+
+      <form action="mailto:saarbu@post.bgu.ac.il" method="post" enctype="text/plain">
+        Name:<br>
+        <input type="text" name="name"><br>
+        E-mail:<br>
+        <input type="text" name="mail"><br>
+        Comment:<br>
+        <input type="text" name="comment" size="50"><br><br>
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+      </form>
+
     </div>
     <br/>
     <br/>
